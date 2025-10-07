@@ -1,0 +1,21 @@
+{
+  "name": "@fullstack/db",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "main": "src/index.ts",
+  "scripts": {
+    "generate": "drizzle-kit generate",
+    "studio": "drizzle-kit studio"
+  },
+  "devDependencies": {
+    "@types/node": "^24.7.0",
+    "drizzle-kit": "^0.31.5"
+  },
+  "dependencies": {
+    "@planetscale/database": "^1.19.0",
+    "drizzle-orm": "^0.44.6",
+    "drizzle-zod": "^0.8.3",
+    "zod": "^4.1.12"
+  }
+}

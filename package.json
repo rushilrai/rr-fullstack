@@ -1,43 +1,22 @@
 {
   "name": "rr-fullstack",
-  "version": "0.0.0",
   "description": "",
-  "author": "Rushil Rai",
-  "license": "MIT",
   "private": true,
   "scripts": {
-    "dev": "concurrently \"npx convex dev\" \"next dev --turbopack\"",
-    "dev:next": "next dev --turbopack",
-    "dev:convex": "npx convex dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
+    "build": "turbo build",
+    "dev": "turbo dev",
+    "lint": "turbo lint",
+    "typecheck": "turbo typecheck",
+    "format": "prettier --write \"**/*.{ts,tsx,md}\""
   },
-  "dependencies": {
-    "@radix-ui/react-slot": "^1.2.3",
-    "class-variance-authority": "^0.7.1",
-    "clsx": "^2.1.1",
-    "convex": "^1.25.2",
-    "lucide-react": "^0.525.0",
-    "next": "15.3.5",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0",
-    "resend": "^4.6.0",
-    "tailwind-merge": "^3.3.1"
-  },
+  "keywords": [],
+  "author": "Rushil Rai",
+  "license": "MIT",
+  "packageManager": "pnpm@10.18.0",
   "devDependencies": {
-    "@eslint/eslintrc": "^3",
-    "@tailwindcss/postcss": "^4",
-    "@types/node": "^20",
-    "@types/react": "^19",
-    "@types/react-dom": "^19",
-    "concurrently": "^9.2.0",
-    "eslint": "^9",
-    "eslint-config-next": "15.3.5",
+    "eslint": "^9.37.0",
     "prettier": "^3.6.2",
-    "prettier-plugin-tailwindcss": "^0.6.14",
-    "tailwindcss": "^4",
-    "tw-animate-css": "^1.3.5",
-    "typescript": "^5"
+    "turbo": "^2.5.8",
+    "typescript": "^5.9.3"
   }
 }
