@@ -1,12 +1,12 @@
 import { sql } from "drizzle-orm";
-import { mysqlTable, varchar, timestamp } from "drizzle-orm/mysql-core";
+import { pgTable, varchar, timestamp } from "drizzle-orm/pg-core";
 import { createSelectSchema, createInsertSchema } from "drizzle-zod";
 import { z } from "zod";
 
-export const samplesTable = mysqlTable("samples", {
+export const samplesTable = pgTable("samples", {
     id: varchar("id", { length: 36 }).primaryKey(),
     data: varchar("data", { length: 255 }).notNull(),
-    createdAt: timestamp("created_at")
+    createdAt: timestamp("created_at", { withTimezone: false })
         .default(sql`CURRENT_TIMESTAMP`)
         .notNull()
 });

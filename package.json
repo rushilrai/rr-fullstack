@@ -7,16 +7,24 @@
     "dev": "turbo dev",
     "lint": "turbo lint",
     "typecheck": "turbo typecheck",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\""
+    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "db:generate": "pnpm --filter @fullstack/db generate",
+    "db:migrate": "pnpm --filter @fullstack/db migrate"
   },
   "keywords": [],
   "author": "Rushil Rai",
   "license": "MIT",
   "packageManager": "pnpm@10.18.0",
+  "engines": {
+    "node": ">=22.14.0",
+    "pnpm": ">=10.18.0"
+  },
   "devDependencies": {
+    "@eslint/js": "^9.37.0",
     "eslint": "^9.37.0",
     "prettier": "^3.6.2",
     "turbo": "^2.5.8",
-    "typescript": "^5.9.3"
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.8.1"
   }
 }
