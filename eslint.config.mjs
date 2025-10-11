@@ -1,16 +1,42 @@
-import { dirname } from "path";
-import { fileURLToPath } from "url";
-import { FlatCompat } from "@eslint/eslintrc";
+import js from "@eslint/js";
+import tseslint from "typescript-eslint";
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
+const tsOnlyConfigs = tseslint.configs.recommendedTypeChecked.map((cfg) => ({
+  ...cfg,
+  files: ["**/*.{ts,tsx}"],
+}));
 
-const compat = new FlatCompat({
-  baseDirectory: __dirname,
-});
-
-const eslintConfig = [
-  ...compat.extends("next/core-web-vitals", "next/typescript"),
+export default [
+  js.configs.recommended,
+  ...tsOnlyConfigs,
+  {
+    files: ["**/*.{ts,tsx}"],
+    languageOptions: {
+      parserOptions: {
+        projectService: true,
+      },
+    },
+    rules: {
+      "@typescript-eslint/no-explicit-any": "error",
+    },
+  },
+  {
+    files: ["**/*.{js,mjs,cjs}"],
+    rules: {
+      "@typescript-eslint/await-thenable": "off",
+    },
+  },
+  {
+    files: [
+      "apps/native/babel.config.js",
+      "apps/native/tailwind.config.js",
+    ],
+    rules: {
+      // JS config files run in Node and commonly use globals like `module`
+      // Keep this narrow to config files to avoid hiding real issues elsewhere
+      "no-undef": "off",
+    },
+  },
 ];
 
-export default eslintConfig;
+

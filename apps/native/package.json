@@ -1,0 +1,33 @@
+{
+  "name": "@fullstack/native",
+  "version": "0.0.0",
+  "private": true,
+  "main": "index.js",
+  "scripts": {
+    "start": "expo start",
+    "android": "expo run:android",
+    "ios": "expo run:ios",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint ."
+  },
+  "dependencies": {
+    "expo": "~52.0.6",
+    "expo-status-bar": "~2.0.0",
+    "react": "18.3.1",
+    "react-native": "0.76.2",
+    "nativewind": "^2.0.11"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.25.2",
+    "@types/react": "^18.3.12",
+    "@eslint/js": "^9.37.0",
+    "eslint": "^9.37.0",
+    "eslint-plugin-react": "^7.37.2",
+    "eslint-plugin-react-hooks": "^5.1.0-rc.0",
+    "typescript-eslint": "^8.8.1",
+    "babel-preset-expo": "^10.0.2",
+    "tailwindcss": "^3.4.14",
+    "typescript": "^5.9.3"
+  }
+}
+
