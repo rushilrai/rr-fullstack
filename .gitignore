@@ -7,3 +7,9 @@ build
 *.env
 *.env.*local
 .DS_Store
+coverage
+.vercel
+.expo
+.expo-shared
+apps/**/ios
+apps/**/android

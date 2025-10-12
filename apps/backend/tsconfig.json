@@ -10,7 +10,8 @@
         ],
         "types": [
             "node"
-        ]
+        ],
+        "noEmit": false
     },
     "include": [
         "src"
