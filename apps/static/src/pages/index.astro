@@ -3,7 +3,11 @@ import CommonLayout from "../modules/common/components/CommonLayout.astro";
 ---
 
 <CommonLayout>
-    <button id="sample-button" class="btn">Button</button>
+    <div class="flex flex-col gap-2 items-center justify-center h-screen">
+        <h1 class="text-3xl font-bold">Static Website Boilerplate</h1>
+
+        <button id="sample-button" class="btn btn-primary">Hello</button>
+    </div>
 </CommonLayout>
 
 <script>
@@ -11,7 +15,7 @@ import CommonLayout from "../modules/common/components/CommonLayout.astro";
     
     if (button) {
     button.addEventListener("click", () => {
-            window.alert("Button clicked");
+            window.alert("World");
         });
     }
 </script>

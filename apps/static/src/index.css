@@ -1,5 +1,5 @@
 @import "tailwindcss";
-@import "basecoat-css";
+@plugin "daisyui";
 
 ::selection {
   background-color: oklch(27% 0.006 286.033);
