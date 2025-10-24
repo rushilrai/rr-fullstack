@@ -1,6 +1,6 @@
 {
-  "name": "rr-fullstack",
-  "description": "",
+  "name": "rr-monorepo",
+  "description": "opiniated full stack monorepo boilerplate",
   "private": true,
   "scripts": {
     "build": "turbo build",
@@ -11,7 +11,7 @@
     "format": "prettier --write --cache --ignore-path .prettierignore \"**/*.{js,cjs,mjs,jsx,ts,tsx,json,json5,md,yml,yaml,html,css,scss,less,gql,graphql,astro}\"",
     "format:check": "prettier --check --cache --ignore-path .prettierignore \"**/*.{js,cjs,mjs,jsx,ts,tsx,json,json5,md,yml,yaml,html,css,scss,less,gql,graphql,astro}\""
   },
-  "keywords": [],
+  "keywords": ["monorepo", "fullstack", "boilerplate"],
   "author": "Rushil Rai",
   "license": "MIT",
   "packageManager": "pnpm@10.18.0",
