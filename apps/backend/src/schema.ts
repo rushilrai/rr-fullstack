@@ -1,9 +1,9 @@
-import { samplesTable } from "./modules/sample/schema";
+import { samplesTable } from './modules/sample/schema'
 
 export const schema = {
-    samplesTable,
-};
+  samplesTable,
+}
 
-export type Schema = typeof schema;
+export type Schema = typeof schema
 
-export { samplesTable };
+export { samplesTable }

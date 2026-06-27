@@ -3,7 +3,11 @@ import baseConfig from '../../prettier.config.base.mjs'
 /** @type {import('prettier').Config} */
 const config = {
   ...baseConfig,
-  plugins: ['prettier-plugin-astro', 'prettier-plugin-tailwindcss'],
+  plugins: [
+    '@ianvs/prettier-plugin-sort-imports',
+    'prettier-plugin-astro',
+    'prettier-plugin-tailwindcss',
+  ],
   overrides: [
     {
       files: '*.astro',

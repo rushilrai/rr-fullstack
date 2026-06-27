@@ -1,7 +1,11 @@
 import { eq } from 'drizzle-orm'
+
 import { db } from '../../configs/db'
-import { samplesTable } from './schema'
-import type { SampleInsertSchema, SampleUpdateSchema } from './schema'
+import {
+  samplesTable,
+  type SampleInsertSchema,
+  type SampleUpdateSchema,
+} from './schema'
 
 export async function getAllSamples() {
   return db.select().from(samplesTable)

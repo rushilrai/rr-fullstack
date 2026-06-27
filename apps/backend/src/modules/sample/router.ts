@@ -1,10 +1,11 @@
 import type { FastifyInstance } from 'fastify'
+
 import {
+  handleCreateSample,
+  handleDeleteSample,
   handleGetAllSamples,
   handleGetSampleById,
-  handleCreateSample,
   handleUpdateSample,
-  handleDeleteSample,
 } from './handler'
 
 export function buildSampleRoutes(app: FastifyInstance) {

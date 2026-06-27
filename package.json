@@ -2,16 +2,24 @@
   "name": "rr-monorepo",
   "description": "opiniated full stack monorepo boilerplate",
   "private": true,
-  "workspaces": ["apps/*", "packages/*", "packages/shared/*"],
+  "workspaces": [
+    "apps/*",
+    "packages/*",
+    "packages/shared/*"
+  ],
   "scripts": {
     "build": "turbo build",
     "dev": "turbo dev",
     "lint": "turbo lint",
     "typecheck": "turbo typecheck",
-    "format": "prettier --write --cache --ignore-path .prettierignore \"**/*.{js,cjs,mjs,jsx,ts,tsx,json,json5,md,yml,yaml,html,css,scss,less,gql,graphql,astro}\"",
-    "format:check": "prettier --check --cache --ignore-path .prettierignore \"**/*.{js,cjs,mjs,jsx,ts,tsx,json,json5,md,yml,yaml,html,css,scss,less,gql,graphql,astro}\""
+    "format": "turbo format && prettier --write \"./*.{js,cjs,mjs,json,md,yml,yaml}\"",
+    "format:check": "turbo check && prettier --check \"./*.{js,cjs,mjs,json,md,yml,yaml}\""
   },
-  "keywords": ["monorepo", "fullstack", "boilerplate"],
+  "keywords": [
+    "monorepo",
+    "fullstack",
+    "boilerplate"
+  ],
   "author": "Rushil Rai",
   "license": "MIT",
   "packageManager": "bun@1.3.14",
@@ -31,6 +39,7 @@
     "react-dom": "19.2.0"
   },
   "devDependencies": {
+    "@ianvs/prettier-plugin-sort-imports": "^4.7.1",
     "@types/node": "^24.7.0",
     "oxlint": "^1.50.0",
     "prettier": "^3.6.2",

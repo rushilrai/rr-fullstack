@@ -1,13 +1,15 @@
 import type { FastifyReply, FastifyRequest } from 'fastify'
 import { z, ZodError } from 'zod'
+
 import { SampleDto } from '@monorepo/dto'
+
 import { SampleInsertSchema, SampleUpdateSchema } from './schema'
 import {
+  createSample,
+  deleteSample,
   getAllSamples,
   getSampleById,
-  createSample,
   updateSample,
-  deleteSample,
 } from './service'
 
 export async function handleGetAllSamples(

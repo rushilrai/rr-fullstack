@@ -13,7 +13,10 @@
   },
   "scripts": {
     "build": "tsc",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "lint": "oxlint",
+    "format": "prettier --write .",
+    "check": "prettier --check ."
   },
   "dependencies": {
     "zod": "^4.1.12"

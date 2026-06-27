@@ -1,14 +1,14 @@
-import { ConvexProvider, ConvexReactClient } from 'convex/react'
+import type { ConvexQueryClient } from '@convex-dev/react-query'
+import type { QueryClient } from '@tanstack/react-query'
 import {
+  createRootRouteWithContext,
   HeadContent,
   Outlet,
   Scripts,
-  createRootRouteWithContext,
 } from '@tanstack/react-router'
+import { ConvexProvider } from 'convex/react'
 
 import styles from '../index.css?url'
-import type { QueryClient } from '@tanstack/react-query'
-import type { ConvexQueryClient } from '@convex-dev/react-query'
 
 export const Route = createRootRouteWithContext<{
   queryClient: QueryClient

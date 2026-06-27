@@ -5,6 +5,7 @@
     "": {
       "name": "rr-monorepo",
       "devDependencies": {
+        "@ianvs/prettier-plugin-sort-imports": "^4.7.1",
         "@types/node": "^24.7.0",
         "oxlint": "^1.50.0",
         "prettier": "^3.6.2",
@@ -342,6 +343,8 @@
     "@fontsource-variable/outfit": ["@fontsource-variable/outfit@5.2.8", "", {}, "sha512-4oUDCZx/Tcz6HZP423w/niqEH31Gks5IsqHV2ZZz1qKHaVIZdj2f0/S1IK2n8jl6Xo0o3N+3RjNHlV9R73ozQA=="],
 
     "@hono/node-server": ["@hono/node-server@1.19.14", "", { "peerDependencies": { "hono": "^4" } }, "sha512-GwtvgtXxnWsucXvbQXkRgqksiH2Qed37H9xHZocE5sA3N8O8O8/8FA3uclQXxXVzc9XBZuEOMK7+r02FmSpHtw=="],
+
+    "@ianvs/prettier-plugin-sort-imports": ["@ianvs/prettier-plugin-sort-imports@4.7.1", "", { "dependencies": { "@babel/generator": "^7.26.2", "@babel/parser": "^7.26.2", "@babel/traverse": "^7.25.9", "@babel/types": "^7.26.0", "semver": "^7.5.2" }, "peerDependencies": { "@prettier/plugin-oxc": "^0.0.4 || ^0.1.0", "@vue/compiler-sfc": "2.7.x || 3.x", "content-tag": "^4.0.0", "prettier": "2 || 3 || ^4.0.0-0", "prettier-plugin-ember-template-tag": "^2.1.0" }, "optionalPeers": ["@prettier/plugin-oxc", "@vue/compiler-sfc", "content-tag", "prettier-plugin-ember-template-tag"] }, "sha512-jmTNYGlg95tlsoG3JLCcuC4BrFELJtLirLAkQW/71lXSyOhVt/Xj7xWbbGcuVbNq1gwWgSyMrPjJc9Z30hynVw=="],
 
     "@img/colour": ["@img/colour@1.1.0", "", {}, "sha512-Td76q7j57o/tLVdgS746cYARfSyxk8iEfRxewL9h4OMzYhbW4TAcppl0mT4eyqXddh6L/jwoM75mo7ixa/pCeQ=="],
 

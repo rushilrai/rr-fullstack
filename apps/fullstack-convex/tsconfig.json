@@ -1,21 +1,10 @@
 {
   "extends": "../../tsconfig.base.json",
-  "include": [
-    "**/*.ts",
-    "**/*.tsx",
-    "prettier.config.js",
-    "vite.config.ts"
-  ],
+  "include": ["**/*.ts", "**/*.tsx", "prettier.config.mjs", "vite.config.ts"],
   "compilerOptions": {
     "jsx": "react-jsx",
-    "lib": [
-      "ES2022",
-      "DOM",
-      "DOM.Iterable"
-    ],
-    "types": [
-      "vite/client"
-    ],
+    "lib": ["ES2022", "DOM", "DOM.Iterable"],
+    "types": ["vite/client"],
     "moduleResolution": "bundler",
     "allowImportingTsExtensions": true,
     "verbatimModuleSyntax": false,
@@ -23,14 +12,10 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
     "noUncheckedSideEffectImports": true,
-    "baseUrl": ".",
     "paths": {
-      "@/*": [
-        "./src/*"
-      ],
-      "@convex/*": [
-        "./convex/*"
-      ]
+      "@/*": ["./src/*"],
+      "@convex/*": ["./convex/*"],
+      "convex/_generated/*": ["./convex/_generated/*"]
     }
   }
 }

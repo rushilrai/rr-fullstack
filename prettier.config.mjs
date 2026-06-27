@@ -1,3 +1,3 @@
-import baseConfig from "./prettier.config.base.mjs";
+import baseConfig from './prettier.config.base.mjs'
 
-export default baseConfig;
+export default baseConfig

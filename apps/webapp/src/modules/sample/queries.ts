@@ -1,6 +1,6 @@
 import { queryOptions, useQuery } from '@tanstack/react-query'
 
-import { fetchSamples, fetchSampleById } from './service'
+import { fetchSampleById, fetchSamples } from './service'
 
 export const samplesQueryOptions = queryOptions({
   queryKey: ['samples'],

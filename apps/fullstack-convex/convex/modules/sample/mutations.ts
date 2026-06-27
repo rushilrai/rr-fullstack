@@ -1,8 +1,8 @@
+import type { Id } from 'convex/_generated/dataModel'
 import { mutation } from 'convex/_generated/server'
 import { v } from 'convex/values'
 
 import { getById } from './helpers'
-import type { Id } from 'convex/_generated/dataModel'
 
 export const create = mutation({
   args: {

@@ -5,7 +5,18 @@ const config = {
   useTabs: false,
   singleQuote: true,
   semi: false,
-  trailingComma: "all",
-};
+  trailingComma: 'all',
+  plugins: ['@ianvs/prettier-plugin-sort-imports'],
+  importOrder: [
+    '<BUILTIN_MODULES>',
+    '<THIRD_PARTY_MODULES>',
+    '',
+    '^@monorepo/(.*)$',
+    '',
+    '^@/(.*)$',
+    '^[./]',
+  ],
+  importOrderTypeScriptVersion: '5.0.0',
+}
 
-export default config;
+export default config

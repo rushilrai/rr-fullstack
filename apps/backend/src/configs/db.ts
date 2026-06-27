@@ -1,35 +1,35 @@
-import { drizzle, NodePgDatabase } from "drizzle-orm/node-postgres";
-import { Pool } from "pg";
+import { drizzle, NodePgDatabase } from 'drizzle-orm/node-postgres'
+import { Pool } from 'pg'
 
-import { schema } from "../schema";
+import { schema } from '../schema'
 
-export type Database = NodePgDatabase<typeof schema>;
+export type Database = NodePgDatabase<typeof schema>
 
-export let db: Database;
+export let db: Database
 
 export async function setupDbConnection() {
-    try {
-        const databaseUrl = process.env.DATABASE_URL;
+  try {
+    const databaseUrl = process.env.DATABASE_URL
 
-        if (!databaseUrl) {
-            throw new Error("DATABASE_URL must be set");
-        }
-
-        const pool = new Pool({ connectionString: databaseUrl });
-
-        db = drizzle(pool, { schema });
-
-        const testQueryResult = await pool.query("SELECT 1");
-
-        if (testQueryResult.rowCount !== 1) {
-            throw new Error("Database connection test failed");
-        }
-
-        console.log("Database connection successful");
-
-        return db;
-    } catch (error) {
-        console.error("Database connection failed", error);
-        throw error;
+    if (!databaseUrl) {
+      throw new Error('DATABASE_URL must be set')
     }
+
+    const pool = new Pool({ connectionString: databaseUrl })
+
+    db = drizzle(pool, { schema })
+
+    const testQueryResult = await pool.query('SELECT 1')
+
+    if (testQueryResult.rowCount !== 1) {
+      throw new Error('Database connection test failed')
+    }
+
+    console.log('Database connection successful')
+
+    return db
+  } catch (error) {
+    console.error('Database connection failed', error)
+    throw error
+  }
 }

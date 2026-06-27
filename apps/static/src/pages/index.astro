@@ -1,21 +1,21 @@
 ---
-import CommonLayout from "../modules/common/components/CommonLayout.astro";
+import CommonLayout from '../modules/common/components/CommonLayout.astro'
 ---
 
 <CommonLayout>
-    <div class="flex flex-col gap-2 items-center justify-center h-screen">
-        <h1 class="text-3xl font-bold font-heading">Static Website Boilerplate</h1>
+  <div class="flex h-screen flex-col items-center justify-center gap-2">
+    <h1 class="font-heading text-3xl font-bold">Static Website Boilerplate</h1>
 
-        <button id="sample-button" class="btn btn-primary font-body">Hello</button>
-    </div>
+    <button id="sample-button" class="btn font-body btn-primary">Hello</button>
+  </div>
 </CommonLayout>
 
 <script>
-    const button = document.getElementById("sample-button");
-    
-    if (button) {
-    button.addEventListener("click", () => {
-            window.alert("World");
-        });
-    }
+  const button = document.getElementById('sample-button')
+
+  if (button) {
+    button.addEventListener('click', () => {
+      window.alert('World')
+    })
+  }
 </script>

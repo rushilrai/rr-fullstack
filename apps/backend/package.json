@@ -9,7 +9,9 @@
     "typecheck": "tsc --noEmit",
     "build": "node esbuild.config.mjs",
     "start": "node --env-file=.env dist/app.cjs",
-    "lint": "oxlint .",
+    "lint": "oxlint",
+    "format": "prettier --write .",
+    "check": "prettier --check .",
     "db:generate": "drizzle-kit generate",
     "db:migrate": "drizzle-kit migrate",
     "db:studio": "drizzle-kit studio"
