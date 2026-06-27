@@ -1,7 +1,7 @@
-import type { Doc } from 'convex/_generated/dataModel'
-import { query } from 'convex/_generated/server'
 import { v } from 'convex/values'
 
+import type { Doc } from '../../_generated/dataModel'
+import { query } from '../../_generated/server'
 import { getAll, getById } from './helpers'
 
 export const list = query({

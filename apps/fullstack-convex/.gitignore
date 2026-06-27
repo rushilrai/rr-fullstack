@@ -13,3 +13,5 @@ dist-ssr
 .output
 .vinxi
 .vercel
+.convex
+convex/tsconfig.json

@@ -1,5 +1,5 @@
-import type { Id } from 'convex/_generated/dataModel'
-import type { MutationCtx, QueryCtx } from 'convex/_generated/server'
+import type { Id } from '../../_generated/dataModel'
+import type { MutationCtx, QueryCtx } from '../../_generated/server'
 
 export const getById = async (
   ctx: QueryCtx | MutationCtx,

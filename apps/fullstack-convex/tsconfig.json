@@ -14,8 +14,7 @@
     "noUncheckedSideEffectImports": true,
     "paths": {
       "@/*": ["./src/*"],
-      "@convex/*": ["./convex/*"],
-      "convex/_generated/*": ["./convex/_generated/*"]
+      "@convex/*": ["./convex/*"]
     }
   }
 }

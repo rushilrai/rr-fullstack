@@ -1,7 +1,7 @@
-import type { Doc } from '@convex/_generated/dataModel'
+import type { Sample } from '../schema'
 
 interface SampleCardProps {
-  sample: Doc<'samples'>
+  sample: Sample
 }
 
 export function SampleCard({ sample }: SampleCardProps) {

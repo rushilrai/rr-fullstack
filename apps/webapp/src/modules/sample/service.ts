@@ -1,9 +1,9 @@
 import type { SampleDto } from '@monorepo/dto'
 
-const BACKEND_URL = import.meta.env.VITE_BACKEND_URL ?? 'http://localhost:4000'
+import { env } from '@/env'
 
 export async function fetchSamples(): Promise<{ samples: SampleDto[] }> {
-  const response = await fetch(`${BACKEND_URL}/api/sample`)
+  const response = await fetch(`${env.VITE_BACKEND_URL}/api/sample`)
 
   if (!response.ok) {
     throw new Error('Failed to fetch samples')
@@ -15,7 +15,7 @@ export async function fetchSamples(): Promise<{ samples: SampleDto[] }> {
 export async function fetchSampleById(
   id: string,
 ): Promise<{ sample: SampleDto }> {
-  const response = await fetch(`${BACKEND_URL}/api/sample/${id}`)
+  const response = await fetch(`${env.VITE_BACKEND_URL}/api/sample/${id}`)
 
   if (!response.ok) {
     throw new Error('Failed to fetch sample')
