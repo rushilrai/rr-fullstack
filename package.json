@@ -2,6 +2,7 @@
   "name": "rr-monorepo",
   "description": "opiniated full stack monorepo boilerplate",
   "private": true,
+  "workspaces": ["apps/*", "packages/*", "packages/shared/*"],
   "scripts": {
     "build": "turbo build",
     "dev": "turbo dev",
@@ -13,10 +14,21 @@
   "keywords": ["monorepo", "fullstack", "boilerplate"],
   "author": "Rushil Rai",
   "license": "MIT",
-  "packageManager": "pnpm@10.18.0",
+  "packageManager": "bun@1.3.14",
   "engines": {
-    "node": ">=24.0.0",
-    "pnpm": ">=10.18.0"
+    "bun": ">=1.3.14",
+    "node": ">=24.0.0"
+  },
+  "trustedDependencies": [
+    "@tailwindcss/oxide",
+    "esbuild",
+    "msw",
+    "sharp",
+    "unrs-resolver"
+  ],
+  "overrides": {
+    "react": "19.2.0",
+    "react-dom": "19.2.0"
   },
   "devDependencies": {
     "@types/node": "^24.7.0",
