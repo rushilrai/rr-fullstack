@@ -1,0 +1,15 @@
+node_modules
+dist
+build
+coverage
+
+.nitro
+.tanstack
+.output
+.vinxi
+.vercel
+src/routeTree.gen.ts
+
+package-lock.json
+bun.lock
+yarn.lock
