@@ -1,6 +1,6 @@
 import { z } from 'zod'
 
-import { dateTimeField } from './utils.js'
+import { dateTimeField } from './utils'
 
 export const SampleDto = z.object({
   id: z.string(),

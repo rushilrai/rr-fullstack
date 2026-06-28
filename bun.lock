@@ -208,7 +208,7 @@
         "typescript": "^6.0.3",
       },
     },
-    "packages/shared/dto": {
+    "packages/dto": {
       "name": "@monorepo/dto",
       "version": "0.0.0",
       "dependencies": {
@@ -666,7 +666,7 @@
 
     "@monorepo/convex": ["@monorepo/convex@workspace:packages/convex"],
 
-    "@monorepo/dto": ["@monorepo/dto@workspace:packages/shared/dto"],
+    "@monorepo/dto": ["@monorepo/dto@workspace:packages/dto"],
 
     "@monorepo/fullstack-convex": ["@monorepo/fullstack-convex@workspace:apps/fullstack-convex"],
 
