@@ -1,12 +1,9 @@
-import { setupDbConnection } from './configs/db'
-import { setupServer } from './configs/server'
+import { env } from './env.ts'
+import { setupDbConnection } from './lib/db/config.ts'
+import { setupServer } from './lib/server/config.ts'
 
 async function main() {
-  const environment = process.env.NODE_ENV
-
-  if (!environment) {
-    throw new Error('NODE_ENV must be set')
-  }
+  console.log(`Environment validated for ${env.NODE_ENV}`)
 
   await setupDbConnection()
   await setupServer()

@@ -1,18 +1,18 @@
 import { eq } from 'drizzle-orm'
 
-import { db } from '../../configs/db'
+import { getDb } from '../../lib/db/config.ts'
 import {
   samplesTable,
   type SampleInsertSchema,
   type SampleUpdateSchema,
-} from './schema'
+} from './schema.ts'
 
 export async function getAllSamples() {
-  return db.select().from(samplesTable)
+  return getDb().select().from(samplesTable)
 }
 
 export async function getSampleById(id: string) {
-  const results = await db
+  const results = await getDb()
     .select()
     .from(samplesTable)
     .where(eq(samplesTable.id, id))
@@ -21,7 +21,7 @@ export async function getSampleById(id: string) {
 }
 
 export async function createSample(data: SampleInsertSchema) {
-  const results = await db
+  const results = await getDb()
     .insert(samplesTable)
     .values({ id: crypto.randomUUID(), ...data })
     .returning()
@@ -30,7 +30,7 @@ export async function createSample(data: SampleInsertSchema) {
 }
 
 export async function updateSample(id: string, data: SampleUpdateSchema) {
-  const results = await db
+  const results = await getDb()
     .update(samplesTable)
     .set(data)
     .where(eq(samplesTable.id, id))
@@ -40,7 +40,7 @@ export async function updateSample(id: string, data: SampleUpdateSchema) {
 }
 
 export async function deleteSample(id: string) {
-  const results = await db
+  const results = await getDb()
     .delete(samplesTable)
     .where(eq(samplesTable.id, id))
     .returning()

@@ -1,41 +1,23 @@
-import type { FastifyInstance } from 'fastify'
+import { Elysia } from 'elysia'
+import { z } from 'zod'
 
 import {
   handleCreateSample,
   handleDeleteSample,
-  handleGetAllSamples,
-  handleGetSampleById,
+  handleGetSample,
+  handleListSamples,
   handleUpdateSample,
-} from './handler'
+} from './handler.ts'
+import { SampleInsertSchema, SampleUpdateSchema } from './schema.ts'
 
-export function buildSampleRoutes(app: FastifyInstance) {
-  app.route({
-    method: 'GET',
-    url: '/sample',
-    handler: handleGetAllSamples,
-  })
+const SampleParams = z.object({ id: z.string() })
 
-  app.route({
-    method: 'GET',
-    url: '/sample/:id',
-    handler: handleGetSampleById,
+export const sampleRoutes = new Elysia({ prefix: '/sample' })
+  .get('', handleListSamples)
+  .get('/:id', handleGetSample, { params: SampleParams })
+  .post('', handleCreateSample, { body: SampleInsertSchema })
+  .put('/:id', handleUpdateSample, {
+    params: SampleParams,
+    body: SampleUpdateSchema,
   })
-
-  app.route({
-    method: 'POST',
-    url: '/sample',
-    handler: handleCreateSample,
-  })
-
-  app.route({
-    method: 'PUT',
-    url: '/sample/:id',
-    handler: handleUpdateSample,
-  })
-
-  app.route({
-    method: 'DELETE',
-    url: '/sample/:id',
-    handler: handleDeleteSample,
-  })
-}
+  .delete('/:id', handleDeleteSample, { params: SampleParams })

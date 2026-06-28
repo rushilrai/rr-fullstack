@@ -1,125 +1,59 @@
-import type { FastifyReply, FastifyRequest } from 'fastify'
-import { z, ZodError } from 'zod'
-
-import { SampleDto } from '@monorepo/dto'
-
-import { SampleInsertSchema, SampleUpdateSchema } from './schema'
+import { NotFoundError } from '../../lib/errors.ts'
 import {
-  createSample,
-  deleteSample,
-  getAllSamples,
-  getSampleById,
-  updateSample,
-} from './service'
+  toSampleDto,
+  type SampleInsertSchema,
+  type SampleUpdateSchema,
+} from './schema.ts'
+import * as sampleService from './service.ts'
 
-export async function handleGetAllSamples(
-  _request: FastifyRequest,
-  reply: FastifyReply,
-) {
-  try {
-    const samples = await getAllSamples()
-    const parsed = samples.map((s) => SampleDto.parse(s))
+export async function handleListSamples() {
+  const rows = await sampleService.getAllSamples()
 
-    return reply.send({ samples: parsed })
-  } catch (error) {
-    if (error instanceof ZodError) {
-      return reply.status(400).send({ error: error.message })
-    }
-
-    console.error('handleGetAllSamples error', error)
-    return reply.status(500).send({ error: 'Internal server error' })
-  }
+  return { samples: rows.map(toSampleDto) }
 }
 
-export async function handleGetSampleById(
-  request: FastifyRequest<{ Params: { id: string } }>,
-  reply: FastifyReply,
-) {
-  try {
-    const { id } = z.object({ id: z.string() }).parse(request.params)
-    const sample = await getSampleById(id)
+export async function handleGetSample({ params }: { params: { id: string } }) {
+  const row = await sampleService.getSampleById(params.id)
 
-    if (!sample) {
-      return reply.status(404).send({ error: 'Sample not found' })
-    }
+  if (!row) throw new NotFoundError('Sample not found')
 
-    return reply.send({ sample: SampleDto.parse(sample) })
-  } catch (error) {
-    if (error instanceof ZodError) {
-      return reply.status(400).send({ error: error.message })
-    }
-
-    console.error('handleGetSampleById error', error)
-    return reply.status(500).send({ error: 'Internal server error' })
-  }
+  return { sample: toSampleDto(row) }
 }
 
-export async function handleCreateSample(
-  request: FastifyRequest,
-  reply: FastifyReply,
-) {
-  try {
-    const body = SampleInsertSchema.parse(request.body)
-    const sample = await createSample(body)
+export async function handleCreateSample({
+  body,
+}: {
+  body: SampleInsertSchema
+}) {
+  const row = await sampleService.createSample(body)
 
-    if (!sample) {
-      return reply.status(500).send({ error: 'Failed to create sample' })
-    }
+  if (!row) throw new Error('Failed to create sample')
 
-    return reply.status(201).send({ sample: SampleDto.parse(sample) })
-  } catch (error) {
-    if (error instanceof ZodError) {
-      return reply.status(400).send({ error: error.message })
-    }
-
-    console.error('handleCreateSample error', error)
-    return reply.status(500).send({ error: 'Internal server error' })
-  }
+  return { sample: toSampleDto(row) }
 }
 
-export async function handleUpdateSample(
-  request: FastifyRequest<{ Params: { id: string } }>,
-  reply: FastifyReply,
-) {
-  try {
-    const { id } = z.object({ id: z.string() }).parse(request.params)
-    const body = SampleUpdateSchema.parse(request.body)
-    const sample = await updateSample(id, body)
+export async function handleUpdateSample({
+  params,
+  body,
+}: {
+  params: { id: string }
+  body: SampleUpdateSchema
+}) {
+  const row = await sampleService.updateSample(params.id, body)
 
-    if (!sample) {
-      return reply.status(404).send({ error: 'Sample not found' })
-    }
+  if (!row) throw new NotFoundError('Sample not found')
 
-    return reply.send({ sample: SampleDto.parse(sample) })
-  } catch (error) {
-    if (error instanceof ZodError) {
-      return reply.status(400).send({ error: error.message })
-    }
-
-    console.error('handleUpdateSample error', error)
-    return reply.status(500).send({ error: 'Internal server error' })
-  }
+  return { sample: toSampleDto(row) }
 }
 
-export async function handleDeleteSample(
-  request: FastifyRequest<{ Params: { id: string } }>,
-  reply: FastifyReply,
-) {
-  try {
-    const { id } = z.object({ id: z.string() }).parse(request.params)
-    const sample = await deleteSample(id)
+export async function handleDeleteSample({
+  params,
+}: {
+  params: { id: string }
+}) {
+  const row = await sampleService.deleteSample(params.id)
 
-    if (!sample) {
-      return reply.status(404).send({ error: 'Sample not found' })
-    }
+  if (!row) throw new NotFoundError('Sample not found')
 
-    return reply.send({ sample: SampleDto.parse(sample) })
-  } catch (error) {
-    if (error instanceof ZodError) {
-      return reply.status(400).send({ error: error.message })
-    }
-
-    console.error('handleDeleteSample error', error)
-    return reply.status(500).send({ error: 'Internal server error' })
-  }
+  return { sample: toSampleDto(row) }
 }

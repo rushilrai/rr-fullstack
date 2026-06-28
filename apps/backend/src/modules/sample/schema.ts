@@ -3,6 +3,8 @@ import { pgTable, timestamp, varchar } from 'drizzle-orm/pg-core'
 import { createInsertSchema, createSelectSchema } from 'drizzle-zod'
 import { z } from 'zod'
 
+import type { SampleDto } from '@monorepo/dto'
+
 export const samplesTable = pgTable('samples', {
   id: varchar('id', { length: 36 }).primaryKey(),
   data: varchar('data', { length: 255 }).notNull(),
@@ -23,3 +25,11 @@ export const SampleUpdateSchema = createInsertSchema(samplesTable).pick({
   data: true,
 })
 export type SampleUpdateSchema = z.infer<typeof SampleUpdateSchema>
+
+export function toSampleDto(row: typeof samplesTable.$inferSelect): SampleDto {
+  return {
+    id: row.id,
+    data: row.data,
+    createdAt: row.createdAt,
+  }
+}

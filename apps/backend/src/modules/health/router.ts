@@ -1,7 +1,8 @@
-import type { FastifyInstance } from 'fastify'
+import { Elysia } from 'elysia'
 
-export function buildHealthRoutes(app: FastifyInstance) {
-  app.get('/health/check', async () => {
-    return { status: 'alive' }
-  })
-}
+import { handleHealthCheck } from './handler.ts'
+
+export const healthRoutes = new Elysia({ prefix: '/health' }).get(
+  '/check',
+  handleHealthCheck,
+)
