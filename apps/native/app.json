@@ -1,0 +1,20 @@
+{
+  "expo": {
+    "name": "native",
+    "slug": "native",
+    "version": "0.0.0",
+    "orientation": "portrait",
+    "scheme": "monoreponative",
+    "userInterfaceStyle": "automatic",
+    "newArchEnabled": true,
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.monorepo.native"
+    },
+    "android": {
+      "package": "com.monorepo.native",
+      "edgeToEdgeEnabled": true
+    },
+    "plugins": ["expo-router"]
+  }
+}
